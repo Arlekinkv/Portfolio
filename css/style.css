@@ -2,6 +2,11 @@ body {
     font-family: 'Inter', sans-serif;
     font-size: 14px;
 }
+
+
+/* Dark theme */
+
+
 .dark {
     background-color: #232326;
     color: #F3F2F0;
@@ -18,12 +23,63 @@ body {
 .dark .social,
 .dark .steps-item,
 .dark .about-title,
-.dark .about-description {
+.dark .about-description,
+.dark .work,
+.dark .tarif-title,
+.dark .tarif-description,
+.dark .tarif-item {
     border-bottom: 1px solid #F3F2F0;
 }
-.dark .steps-item:first-child {
+.dark .steps-item:first-child,
+.dark .advantages,
+.dark footer,
+.dark .form-item {
     border-top: 1px solid #F3F2F0;
 }
+.dark .gradient {
+    background: linear-gradient(180deg, #141416 0%, rgba(20, 20, 22, 0) 100%);
+}
+.dark .tech-item {
+    border-bottom: 1px solid rgba(243, 242, 240, 0.3);
+    border-right: 1px solid rgba(243, 242, 240, 0.3);
+    
+}
+.dark .tech-item:first-child,
+.dark .tech-item:nth-child(5) {
+    border-left: 1px solid rgba(243, 242, 240, 0.3);
+}
+.dark .nav-social .nav-item::before {
+    background-color: rgba(243, 242, 240, 0.5);
+}
+.dark .html,
+.dark .css,
+.dark .js,
+.dark .jquery {
+    border-top: 1px solid rgba(243, 242, 240, 0.3);
+}
+.dark .advantages-image path {
+    fill: #F3F2F0;
+}
+.dark .nav-tabs-link {
+    color: rgba(243, 242, 240, 0.5);
+}
+.dark .nav-tabs-item.ui-state-active .nav-tabs-link {
+    color: #F3F2F0;
+    border-bottom: 2px solid #F3F2F0;
+}
+.dark .project-img {
+    background-image: url(../img/arrow.svg);
+}
+.dark form input,
+.dark .ui-selectmenu-button.ui-button,
+.dark .ui-selectmenu-menu {
+    background-color: #38383A;
+}
+
+
+/* Light theme */
+
+
 .light {
     background-color: #F3F2F0;
     color: #010101;
@@ -40,12 +96,62 @@ body {
 .light .social,
 .light .steps-item,
 .light .about-title,
-.light .about-description {
+.light .about-description,
+.light .work,
+.light .tarif-title,
+.light .tarif-description,
+.light .tarif-item {
     border-bottom: 1px solid #010101;
 }
-.light .steps-item:first-child {
+.light .steps-item:first-child,
+.light .advantages,
+.light footer,
+.light .form-item {
     border-top: 1px solid #010101;
 }
+.light .gradient {
+    background: linear-gradient(180deg, #E7E6E6 0%, rgba(231, 230, 230, 0) 100%);
+}
+.light .tech-item {
+    border-bottom: 1px solid rgba(1, 1, 1, 0.3);
+    border-right: 1px solid rgba(1, 1, 1, 0.3);
+}
+.light .tech-item:first-child,
+.light .tech-item:nth-child(5) {
+    border-left: 1px solid rgba(1, 1, 1, 0.3);
+}
+.light .nav-social .nav-item::before {
+    background-color: rgba(1, 1, 1, 0.2);
+}
+.light .html,
+.light .css,
+.light .js,
+.light .jquery {
+    border-top: 1px solid rgba(1, 1, 1, 0.3);
+}
+.light .advantages-image path {
+    fill: #010101;
+}
+.light .nav-tabs-link {
+    color: rgba(1, 1, 1, 0.4);
+}
+.light .nav-tabs-item.ui-state-active .nav-tabs-link {
+    color: #010101;
+    border-bottom: 2px solid #010101;
+}
+.light .project-img {
+    background-image: url(../img/arrow_light.svg);
+}
+.light form input,
+.light .ui-selectmenu-button.ui-button,
+.light .ui-selectmenu-menu {
+    background-color: #E7E6E4;
+}
+
+
+/* Main styles */
+
+
 .wrapper {
     max-width: 1140px;
     margin: 0 auto;
@@ -78,6 +184,18 @@ body {
 .photo {
     margin-bottom: 93px;
     width: 100%;
+    height: 310px;
+    position: relative;
+    overflow: hidden;
+}
+.photo img {
+    width: 100%;
+    height: 310px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(50%,50%);
+    object-fit: cover;
 }
 header {
     display: flex;
@@ -113,7 +231,7 @@ header {
     position: relative;
 }
 .nav-info .nav-item::before {
-    content: "";
+    content: '';
     display: block;
     width: 1px;
     height: 24px;
@@ -129,11 +247,10 @@ header {
     position: relative;
 }
 .nav-social .nav-item::before {
-    content: "";
+    content: '';
     display: block;
     width: 1px;
     height: 24px;
-    background-color: rgba(243, 242, 240, 0.5);
     position: absolute;
     left: 0;
     top: calc(50% - 12px);
@@ -182,6 +299,7 @@ header {
 }
 .skill {
     display: flex;
+    flex-wrap: wrap;
     padding-top: 48px;
 }
 .skill .title-h3 {
@@ -206,11 +324,12 @@ header {
     justify-content: space-between;
     align-items: center;
     line-height: 150%;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: 2px;
+    padding-bottom: 1px;
 }
 .steps-title {
     font-size: 28px;
+    line-height: 150%;
 }
 .steps-title span {
     margin-right: 40px;
@@ -233,7 +352,7 @@ header {
     height: 300px;
     position: absolute;
     left: -151px;
-    top: calc(50% - 130px);
+    top: -2px;
     z-index: 1;
 }
 .triangle {
@@ -330,9 +449,6 @@ header {
     position: relative;
     z-index: 1;
 }
-.gradient {
-    background: linear-gradient(180deg, #141416 0%, rgba(20, 20, 22, 0) 100%);
-}
 .section-portfolio {
     position: relative;
 }
@@ -365,7 +481,6 @@ header {
     padding-bottom: 21px;
     color: rgba(243, 242, 240, 0.5);
     text-decoration: none;
-
 }
 .nav-tabs-item.ui-state-active .nav-tabs-link {
     color: #F3F2F0;
@@ -453,9 +568,6 @@ header {
     width: 40px;
     height: 40px;
 }
-.advantages-image path {
-    fill: #F3F2F0;
-}
 .advantages .title-h3 {
     margin-top: 0;
     margin-bottom: 11px;
@@ -484,7 +596,10 @@ header {
 .tech-item:nth-child(5) {
     border-left: 1px solid rgba(243,242,240.0,3);
 }
-.html, .css, .js, .jquery {
+.html,
+.css,
+.js,
+.jquery {
     border-top: 1px solid rgba(243,242,240.0,3);
 }
 .tech-image {
@@ -493,6 +608,9 @@ header {
 }
 .tech-item:hover .tech-image {
     filter: grayscale(0);
+}
+.jquery .tech-image {
+    width: 72px;
 }
 .ui-tooltip {
     background-color: #E31B1B;
@@ -635,17 +753,15 @@ header {
     line-height: 150%;
     letter-spacing: 0.03em;
     text-transform: uppercase;
-    border-bottom: 1px solid #F3F2F0;
 }
 .form-title p {
     position: relative;
-    z-index: 2;
+    z-index: 1;
 }
 .form-description {
     font-size: 28px;
     line-height: 150%;
     opacity: 0.8;
-    border-bottom: 1px solid #F3F2F0;
     padding-left: 10px;
     padding-bottom: 32px;
 }
@@ -656,6 +772,8 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    position: relative;
+    z-index: 3;
 }
 .form-social .nav-social {
     margin-bottom: 4px;
@@ -666,8 +784,6 @@ header {
 form {
     font-size: 12px;
     line-height: 150%;
-    padding-left: 10px;
-    position: relative;
 }
 form label {    
     display: block;
@@ -677,7 +793,6 @@ form label {
 form input {
     width: 100%;
     padding: 25px 20px 25px;
-    background-color: #38383A;
     color: #F3F2F0;
     border: none;
     box-sizing: border-box;
@@ -694,6 +809,11 @@ form input[type="submit"] {
     color: #F3F2F0;
     padding: 21px 0;
     margin-bottom: 0;
+    transition: 0.2s ease;
+}
+form input[type="submit"]:hover {
+    background: #EA0E00;
+    cursor: pointer;
 }
 form select {
     width: 100%;
@@ -701,7 +821,6 @@ form select {
 .ui-selectmenu-button.ui-button {
     width: 100%;
     padding: 25px 20px 25px;
-    background-color: #38383A;
     color: #fff;
     box-sizing: border-box;
     margin-bottom: 40px;
@@ -712,10 +831,8 @@ form select {
     outline: none;
 }
 .ui-selectmenu-menu .ui-menu {
-    background-color: #38383A;
     color: rgba(243, 242, 240, 0.4);
     font-size: 12px;
-    border-radius: 0;
 }
 .ui-selectmenu-menu .ui-menu .ui-menu-item {
     padding: 10px 20px;
@@ -723,9 +840,6 @@ form select {
 .ui-selectmenu-menu .ui-menu .ui-menu-item:hover {
     color: rgba(243, 242, 240, 1);
     padding: 10px 20px;
-}
-footer {
-    border-top: 1px solid #F3F2F0;
 }
 .footer-top {
     display: flex;
